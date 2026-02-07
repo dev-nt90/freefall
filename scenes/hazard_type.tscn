@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cm6jsyi1ri5lx"]
+
+[ext_resource type="Script" uid="uid://d21rmek1ussx5" path="res://scenes/hazard_type.gd" id="1_23fxr"]
+
+[node name="HazardType" type="Node3D" unique_id=343020235]
+script = ExtResource("1_23fxr")

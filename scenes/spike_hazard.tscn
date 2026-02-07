@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://rin6enlight6"]
+
+[ext_resource type="PackedScene" uid="uid://bwbl70etg2xu4" path="res://scenes/hazard.tscn" id="1_fnw2x"]
+
+[node name="SpikeHazard" unique_id=423307511 instance=ExtResource("1_fnw2x")]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." index="0" unique_id=1065211910]
+sides = 32
+cone = true
