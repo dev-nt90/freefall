@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bx45jb03wgedh"]
+
+[ext_resource type="PackedScene" uid="uid://btjdnt865aj2m" path="res://gfx/models/Comet.glb" id="1_2rx51"]
+
+[node name="Comet" type="Node3D" unique_id=1243315450]
+
+[node name="Comet" parent="." unique_id=1725319731 instance=ExtResource("1_2rx51")]

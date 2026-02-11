@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://re1go1t31acc"]
+
+[ext_resource type="PackedScene" uid="uid://bm0uwrecsthdk" path="res://gfx/models/Asteroid 2.glb" id="1_e6cmj"]
+
+[node name="Asteroid2" type="Node3D" unique_id=1829651941]
+
+[node name="Asteroid 2" parent="." unique_id=657246467 instance=ExtResource("1_e6cmj")]

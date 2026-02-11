@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cyk7q8o0nrpwu"]
+
+[ext_resource type="ArrayMesh" uid="uid://4wpiij6lrcdx" path="res://gfx/models/Ring/Halo_01(1).obj" id="1_03kdj"]
+[ext_resource type="Script" uid="uid://q675islekykl" path="res://scenes/ring.gd" id="1_f7lrs"]
+[ext_resource type="Material" uid="uid://ihkipvd7k4bk" path="res://gfx/materials/ring_yellow.tres" id="3_d05vm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f7lrs"]
+radius = 20.501465
+
+[node name="Ring" type="Node3D" unique_id=48941672]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0)
+script = ExtResource("1_f7lrs")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1263143417]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=294799532]
+shape = SubResource("CylinderShape3D_f7lrs")
+
+[node name="RingMesh" type="MeshInstance3D" parent="." unique_id=436137048]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("1_03kdj")
+surface_material_override/0 = ExtResource("3_d05vm")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

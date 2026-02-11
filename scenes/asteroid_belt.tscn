@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dcongpgk660rb"]
+
+[ext_resource type="PackedScene" uid="uid://bxjjq8626bi4g" path="res://gfx/models/AsteroidBelt.glb" id="1_k544b"]
+
+[node name="AsteroidBelt" type="Node3D" unique_id=1883856651]
+
+[node name="AsteroidBelt" parent="." unique_id=578223876 instance=ExtResource("1_k544b")]

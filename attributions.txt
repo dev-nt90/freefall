@@ -1,1 +1,14 @@
 brick texture: https://architextures.org/textures/283
+Astronaut by Polygonal Mind (https://poly.pizza/m/4orkFqR9c9)
+Space panorama: https://github.com/rpgwhitelock/AllSkyFree_Godot/blob/master/addons/AllSkyFree/Skyboxes/AllSkyFree_Sky_AnotherPlanet_Equirect.png
+Astronaut by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/dLHpzNdygsg)
+Asteroid by J-Toastie [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/YS1jpm3mNr)
+Asteroid 2 by J-Toastie [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/yuCzypJ0w4)
+Asteroids by Jarlan Perez [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/9k18F9bT43N)
+Comet by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/ffzZSJOorck)
+Asteroid by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/enaIlQWET9a)
+Satellite by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/1C3zb8Q9USk)
+Halo by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/5jiuuz7sOV_)
+Planet by Quaternius (https://poly.pizza/m/hKZtOOMadH)
+Starry Sky shader: https://godotshaders.com/shader/starry-sky/
+Crystal pack: https://poly.pizza/bundle/Crystal-Pack-AywAG7aywi

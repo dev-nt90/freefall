@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bhjq50yitihg2"]
+
+[ext_resource type="Script" uid="uid://d4h8r6hfq8jwo" path="res://scenes/hud.gd" id="1_oo0fn"]
+
+[node name="hud" type="CanvasLayer" unique_id=1459829294 groups=["hud"]]
+script = ExtResource("1_oo0fn")
+
+[node name="DistanceLabel" type="Label" parent="." unique_id=821610480]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "Distance to planet: "
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1556490916]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 40
+text = "Score:"

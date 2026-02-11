@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dtru1fvwbfbxs"]
+
+[ext_resource type="PackedScene" uid="uid://danrrkm0f2xse" path="res://gfx/models/Planet.glb" id="1_cktii"]
+[ext_resource type="Script" uid="uid://blhf73026i0sv" path="res://scenes/planet.gd" id="1_h8ms6"]
+
+[node name="Planet" type="Node3D" unique_id=1964140132 groups=["planet"]]
+script = ExtResource("1_h8ms6")
+
+[node name="Root Scene" parent="." unique_id=1896292131 instance=ExtResource("1_cktii")]

@@ -1,6 +1,25 @@
 extends CharacterBody3D
 
+@export var max_speed: float = 10.0
+@export var accel: float = 35.0
+@export var decel: float = 0.5
+@export var rotation_speed: float = 1.5
 @export var move_speed: float = 6
+
+var vel: Vector3 = Vector3.ZERO
+
+@export var max_lean_degrees: float = 12.0
+@export var lean_in_time: float = 0.08
+@export var lean_out_time: float = 0.14
+var _lean_tween: Tween
+
+@onready var info_label: Label3D = $InfoLabel
+@onready var thruster_smoke_fx = $Effects/ThrusterSmoke
+@onready var visual_root = $VisualRoot
+
+func _ready() -> void:
+    info_label.text = ""
+    thruster_smoke_fx.emitting = false
 
 func _physics_process(delta: float) -> void:
     move_logic(delta)
@@ -9,6 +28,71 @@ func _physics_process(delta: float) -> void:
 func move_logic(delta: float) -> void:
     var input_dir = Input.get_vector("right", "left", "down", "up")
     
-    if input_dir != Vector2.ZERO:
-        position.x += input_dir.x * move_speed * delta
-        position.z += input_dir.y * move_speed * delta
+    # since objects can collide with the player and move them up, this keeps them
+    # locked in place vertically to keep the illusion
+    position.y = 0
+    
+    # core movement, make player feel "floaty"
+    move_by_velocity(delta, input_dir)
+    handle_rotation(delta)
+    apply_lean(input_dir.x)
+
+func move_by_velocity(delta: float, input_dir: Vector2):
+    # get local axes in WORLD space
+    var right = global_transform.basis.x
+    var forward = -global_transform.basis.z  # Godot forward is -Z
+
+    # flatten so rotation around Y doesn't introduce vertical drift
+    right.y = 0
+    forward.y = 0
+
+    right = right.normalized()
+    forward = forward.normalized()
+    
+    # combine input with rotated axes
+    var desired_dir = (right * input_dir.x) + (forward * input_dir.y)
+    
+    if desired_dir.length_squared() > 0.0001:
+        thruster_smoke_fx.emitting = true
+        vel += desired_dir * accel * delta
+        
+        # Clamp max speed
+        var speed := vel.length()
+        if speed > max_speed:
+            vel = vel / speed * max_speed
+    else:
+        thruster_smoke_fx.emitting = false
+         
+        # No input: brake toward zero
+        var speed := vel.length()
+        if speed > 0.0:
+            var drop := decel * delta
+            vel = vel * max(0.0, (speed - drop) / speed)
+    
+    # Move by velocity
+    position += vel * delta
+
+func handle_rotation(delta: float):
+    if Input.is_action_pressed("rotate_left"):
+        rotation.y += rotation_speed * delta
+    if Input.is_action_pressed("rotate_right"):
+        rotation.y -= rotation_speed * delta
+
+func apply_lean(horizontal: float) -> void:
+    # Target roll: right input -> lean right (negative roll often looks correct; flip if needed)
+    var target_roll_rad = deg_to_rad(max_lean_degrees) * -horizontal
+
+    # If we’re already basically there, don’t spam tweens
+    if is_equal_approx(visual_root.rotation.z, target_roll_rad):
+        return
+
+    # Kill previous tween so rapid direction changes feel snappy, not “queued”
+    if _lean_tween and _lean_tween.is_running():
+        _lean_tween.kill()
+
+    var duration = lean_out_time if horizontal == 0.0 else lean_in_time
+
+    _lean_tween = create_tween()
+    _lean_tween.set_trans(Tween.TRANS_SINE)
+    _lean_tween.set_ease(Tween.EASE_OUT)
+    _lean_tween.tween_property(visual_root, "rotation:z", target_roll_rad, duration)

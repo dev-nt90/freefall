@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c5t1sow6fldu"]
+
+[ext_resource type="Script" uid="uid://ltmj3tj157id" path="res://scenes/ring_manager.gd" id="1_3n68x"]
+
+[node name="RingManager" type="Node3D" unique_id=1313984483]
+script = ExtResource("1_3n68x")

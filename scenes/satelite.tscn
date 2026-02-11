@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c0xdred2vg3p0"]
+
+[ext_resource type="ArrayMesh" uid="uid://blgafo25oex3x" path="res://gfx/models/Satellite/Satellite(1).obj" id="1_qjwp1"]
+
+[node name="Satelite" type="Node3D" unique_id=1920909191]
+
+[node name="Satellite(1)" type="MeshInstance3D" parent="." unique_id=1528462363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017613769, 0, 0.18768287)
+mesh = ExtResource("1_qjwp1")
