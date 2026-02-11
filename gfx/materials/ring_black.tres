@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cxa5xmsom0si4"]
+
+[resource]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.87058824)
+emission_enabled = true
+backlight = Color(0.86218, 0.81932044, 0, 1)
+disable_receive_shadows = true

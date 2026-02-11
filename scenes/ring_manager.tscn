@@ -4,3 +4,36 @@
 
 [node name="RingManager" type="Node3D" unique_id=1313984483]
 script = ExtResource("1_3n68x")
+
+[node name="Timers" type="Node" parent="." unique_id=1177193642]
+
+[node name="BlackRingTimer" type="Timer" parent="Timers" unique_id=110702726]
+wait_time = 120.0
+autostart = true
+
+[node name="YellowRingTimer" type="Timer" parent="Timers" unique_id=496065014]
+wait_time = 60.0
+autostart = true
+
+[node name="BlueRingTimer" type="Timer" parent="Timers" unique_id=1416523005]
+wait_time = 45.0
+autostart = true
+
+[node name="GreenRingTimer" type="Timer" parent="Timers" unique_id=1058844094]
+wait_time = 30.0
+autostart = true
+
+[node name="RedRingTimer" type="Timer" parent="Timers" unique_id=706812609]
+wait_time = 12.0
+autostart = true
+
+[node name="PinkRingTimer" type="Timer" parent="Timers" unique_id=647286111]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timers/BlackRingTimer" to="." method="_on_black_ring_timer_timeout"]
+[connection signal="timeout" from="Timers/YellowRingTimer" to="." method="_on_yellow_ring_timer_timeout"]
+[connection signal="timeout" from="Timers/BlueRingTimer" to="." method="_on_blue_ring_timer_timeout"]
+[connection signal="timeout" from="Timers/GreenRingTimer" to="." method="_on_green_ring_timer_timeout"]
+[connection signal="timeout" from="Timers/RedRingTimer" to="." method="_on_red_ring_timer_timeout"]
+[connection signal="timeout" from="Timers/PinkRingTimer" to="." method="_on_pink_ring_timer_timeout"]

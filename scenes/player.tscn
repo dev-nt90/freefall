@@ -57,9 +57,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31640625, 0)
 shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1552040215]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5302888, -6.1730976)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.6117473, -6.964386)
 current = true
 fov = 85.0
+far = 10000.0
 
 [node name="InfoLabel" type="Label3D" parent="." unique_id=1756720960]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)

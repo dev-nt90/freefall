@@ -34,7 +34,7 @@ func _ready() -> void:
 
 func spawn_planet() -> void:
     var planet = planet_scene.instantiate()
-    planet.position.y = -10000
+    planet.position.y = -5000
     $ActiveChunks.add_child(planet)
 
 func spawn_chunk_chain() -> void:
