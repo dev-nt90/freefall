@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ba71h2chpvdox"]
+
+[ext_resource type="Script" uid="uid://crwsojbl3rovn" path="res://scenes/environment_manager.gd" id="1_ng0vp"]
+
+[node name="EnvironmentManager" type="Node3D" unique_id=2010607272]
+script = ExtResource("1_ng0vp")
+
+[node name="ActiveObjects" type="Node3D" parent="." unique_id=213164841]

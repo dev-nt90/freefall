@@ -1,9 +1,22 @@
 [gd_scene format=3 uid="uid://c0xdred2vg3p0"]
 
+[ext_resource type="Script" uid="uid://c0k7lqcji8gow" path="res://scenes/level_piece.gd" id="1_amfgn"]
 [ext_resource type="ArrayMesh" uid="uid://blgafo25oex3x" path="res://gfx/models/Satellite/Satellite(1).obj" id="1_qjwp1"]
 
-[node name="Satelite" type="Node3D" unique_id=1920909191]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_amfgn"]
+points = PackedVector3Array(20.188328, 5.5359282, 5.4360986, -3.2559187, 3.5828362, -10.846043, -20.188328, 4.886428, -0.4213922, -1.3015515, -0.3256426, 9.993058, -0.6487357, 11.397499, 9.993058, 1.3015515, 8.790317, -10.846043, -0.6487357, 6.1854286, 15.205383, 1.9502871, 2.2803924, -10.846043, -20.188328, 5.5359282, 5.4360986, 20.841143, 5.5359282, 0.22887337, 1.3015515, -0.3256426, 9.993058, -1.3015515, 8.790317, -10.846043, -20.841143, 5.5359282, 0.22887337, -1.9502871, 2.2803924, -10.846043, 20.841143, 4.886428, 0.22887337, 3.2559187, 10.745704, 9.993058, -0.6487357, 4.886428, 15.205383, -20.188328, 4.886428, 5.4360986, 3.2559187, 6.838372, -10.846043, 20.188328, 4.886428, 5.4360986, 0.6487357, 6.1854286, 15.205383, -3.2559187, 10.745704, 9.993058, 0.6487357, 4.886428, 15.205383, 0.6487357, 11.397499, 9.3427925, -3.2559187, 6.838372, -10.846043, 3.2559187, 3.5828362, -10.846043, -20.841143, 4.886428, 0.22887337, 1.3015515, -0.3256426, 9.3427925, 3.2559187, 0.3261528, 9.993058, -3.2559187, 0.3261528, 9.993058, -1.3015515, -0.3256426, 9.3427925, -0.6487357, 11.397499, 9.3427925)
+
+[node name="Satelite" type="Node3D" unique_id=2043092888]
+script = ExtResource("1_amfgn")
+metadata/_custom_type_script = "uid://c0k7lqcji8gow"
 
 [node name="Satellite(1)" type="MeshInstance3D" parent="." unique_id=1528462363]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017613769, 0, 0.18768287)
 mesh = ExtResource("1_qjwp1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Satellite(1)" unique_id=835237675]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Satellite(1)/StaticBody3D" unique_id=1716554331]
+shape = SubResource("ConvexPolygonShape3D_amfgn")

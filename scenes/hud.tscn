@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhjq50yitihg2"]
 
 [ext_resource type="Script" uid="uid://d4h8r6hfq8jwo" path="res://scenes/hud.gd" id="1_oo0fn"]
+[ext_resource type="LabelSettings" uid="uid://by45jgrkdnkm2" path="res://gfx/resouces/default_label_settings.tres" id="2_oo0fn"]
 
 [node name="hud" type="CanvasLayer" unique_id=1459829294 groups=["hud"]]
 script = ExtResource("1_oo0fn")
@@ -14,9 +15,29 @@ offset_bottom = 23.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 40
 text = "Distance to planet: "
+label_settings = ExtResource("2_oo0fn")
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=1556490916]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -130.0
+offset_top = 58.0
+offset_right = -12.0
+offset_bottom = 113.0
+grow_horizontal = 0
 theme_override_font_sizes/font_size = 40
 text = "Score:"
+label_settings = ExtResource("2_oo0fn")
+
+[node name="SpeedModifierLabel" type="Label" parent="." unique_id=1075509131]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -690.0
+offset_top = 110.0
+offset_right = -33.0
+offset_bottom = 165.0
+grow_horizontal = 0
+text = "Current Speed Modifier: 1.0"
+label_settings = ExtResource("2_oo0fn")

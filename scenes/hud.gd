@@ -1,20 +1,24 @@
 extends CanvasLayer
 
-@onready var player = get_tree().get_first_node_in_group('player')
-@onready var planet = get_tree().get_first_node_in_group('planet')
 @onready var distance_label = $DistanceLabel
 @onready var score_label = $ScoreLabel
+@onready var speed_modifier_label = $SpeedModifierLabel
+
 var score: int = 0
 
 func _ready() -> void:
     set_score_label()
+    set_speed_modifier_label(GameConfiguration.speed_modifier)
 
-func _process(_delta: float) -> void:
-    distance_label.text = "Distance to Planet: " + str(abs(int(player.position.y - planet.position.y)))
-
-func update_score(value: int):
+func update_score(value: int) -> void:
     score += value
     set_score_label()
 
-func set_score_label():
+func set_score_label() -> void:
     score_label.text = "Score: " + str(score)
+
+func set_distance_label(value: int) -> void:
+    distance_label.text = "Distance to Planet: " + str(value)
+    
+func set_speed_modifier_label(value: float) -> void:
+    speed_modifier_label.text = "Current Speed Modifier %1f" % value

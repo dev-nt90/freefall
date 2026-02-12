@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dteok3xt252d4" path="res://scenes/chunk_manager.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bhjq50yitihg2" path="res://scenes/hud.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c5t1sow6fldu" path="res://scenes/ring_manager.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://swp36mmpie5v" path="res://scenes/game_manager.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://ba71h2chpvdox" path="res://scenes/environment_manager.tscn" id="7_u5sy4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lbhrr"]
 shader = ExtResource("1_lnu2h")
@@ -43,6 +45,8 @@ dof_blur_amount = 0.05
 
 [node name="Game" type="Node3D" unique_id=1502452765]
 
+[node name="EnvironmentManager" parent="." unique_id=2010607272 instance=ExtResource("7_u5sy4")]
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1471266512]
 shadow_enabled = true
 shadow_bias = 3.862
@@ -65,5 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 0.91666293, 0.39966118, 0, -0.39966112, 0.91
 [node name="Collectibles" type="Node3D" parent="." unique_id=1177687055]
 
 [node name="RingManager" parent="." unique_id=1313984483 instance=ExtResource("5_iywne")]
+
+[node name="GameManager" parent="." unique_id=807931014 instance=ExtResource("6_p57ef")]
 
 [editable path="Player"]

@@ -1,8 +1,7 @@
-extends Node3D
+extends LevelPiece
 
 signal player_entered_ring
 
-@export var move_speed: float = 10.0
 @export var points: int = 100
 @onready var mesh_instance = $RingMesh
 @onready var black_ring_material = preload("res://gfx/materials/ring_black.tres")
@@ -17,6 +16,12 @@ var current_material
 
 func _ready() -> void:
     pass
+    
+func _physics_process(delta: float) -> void:
+    position.y += move_speed * delta * GameConfiguration.speed_modifier
+    
+    if position.y >= 50:
+        queue_free.call_deferred()
 
 func set_ring_color(color: String):
     match color:
@@ -50,10 +55,6 @@ func pulse():
     tween.set_loops()
     tween.tween_property(current_material, "albedo_color:a", 0.05, 1 + randf_range(0, 1))
     tween.tween_property(current_material, "albedo_color:a", .5, 1 + randf_range(0, 1))
-    
-func _physics_process(delta: float) -> void:
-    position.y += move_speed * delta
-    
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
     if not body.is_in_group('player'):

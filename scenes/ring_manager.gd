@@ -16,15 +16,14 @@ func spawn_ring(color: String, points: int):
     collectible_container.add_child(new_ring)
     
     #TODO: create level bounds object
-    var rand_x = randi_range(-1000, 1000)
-    var rand_z = randi_range(-1000, 1000)
-    var rand_y = randi_range(-500, -1000)
+    var rand_x = randi_range(-500, 500)
+    var rand_z = randi_range(-500, 500)
+    var rand_y = randi_range(-100, -500)
     var rand_pos = Vector3(rand_x, rand_y, rand_z)
     new_ring.position = rand_pos
     new_ring.points = points
     new_ring.set_ring_color(color)
     new_ring.fade_in()
-
 
 func _on_yellow_ring_timer_timeout() -> void:
     spawn_rings(3, 'yellow', 100)

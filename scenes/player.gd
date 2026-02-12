@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+signal player_took_damage
+signal player_died
+
 @export var max_speed: float = 10.0
 @export var accel: float = 35.0
 @export var decel: float = 0.5
@@ -12,6 +15,9 @@ var vel: Vector3 = Vector3.ZERO
 @export var lean_in_time: float = 0.08
 @export var lean_out_time: float = 0.14
 var _lean_tween: Tween
+
+@export var health: int = 3
+var can_take_damage: bool = true
 
 @onready var info_label: Label3D = $InfoLabel
 @onready var thruster_smoke_fx = $Effects/ThrusterSmoke
@@ -58,8 +64,8 @@ func move_by_velocity(delta: float, input_dir: Vector2):
         
         # Clamp max speed
         var speed := vel.length()
-        if speed > max_speed:
-            vel = vel / speed * max_speed
+        if speed > (max_speed * GameConfiguration.speed_modifier):
+            vel = vel / speed * (max_speed * GameConfiguration.speed_modifier)
     else:
         thruster_smoke_fx.emitting = false
          
@@ -79,14 +85,14 @@ func handle_rotation(delta: float):
         rotation.y -= rotation_speed * delta
 
 func apply_lean(horizontal: float) -> void:
-    # Target roll: right input -> lean right (negative roll often looks correct; flip if needed)
+    # Target roll: right input -> lean right
     var target_roll_rad = deg_to_rad(max_lean_degrees) * -horizontal
 
     # If we’re already basically there, don’t spam tweens
     if is_equal_approx(visual_root.rotation.z, target_roll_rad):
         return
 
-    # Kill previous tween so rapid direction changes feel snappy, not “queued”
+    # Kill previous tween so rapid direction changes feel snappy
     if _lean_tween and _lean_tween.is_running():
         _lean_tween.kill()
 
@@ -96,3 +102,29 @@ func apply_lean(horizontal: float) -> void:
     _lean_tween.set_trans(Tween.TRANS_SINE)
     _lean_tween.set_ease(Tween.EASE_OUT)
     _lean_tween.tween_property(visual_root, "rotation:z", target_roll_rad, duration)
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+    print(area.get_groups())
+    if not area.is_in_group('collectible'):
+        take_damage()
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+    print(body.get_groups())
+    if not body.is_in_group('collectible'):
+        take_damage()
+        
+func take_damage() -> void:
+    # TODO: bug here, collectibles are causing damage to be taken
+    if can_take_damage:
+        can_take_damage = false
+        health -= 1
+        if health <= 0:
+            player_died.emit()
+        else:
+            player_took_damage.emit(health)
+            $Timers/PlayerDamageTimer.start()
+
+
+func _on_player_damage_timer_timeout() -> void:
+    can_take_damage = true

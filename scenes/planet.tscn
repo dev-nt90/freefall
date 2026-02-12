@@ -48,14 +48,27 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6npi5")
 
-[node name="Planet" type="Node3D" unique_id=1964140132 groups=["planet"]]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8ms6"]
+size = Vector3(2000, 300, 300)
+
+[node name="Planet" type="Node3D" unique_id=339742024 groups=["planet"]]
 script = ExtResource("1_h8ms6")
+metadata/_custom_type_script = "uid://c0k7lqcji8gow"
 
 [node name="Root Scene" type="Node3D" parent="." unique_id=1896292131]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="RootNode" type="Node3D" parent="Root Scene" unique_id=898249102]
 
 [node name="Planet_10" type="MeshInstance3D" parent="Root Scene/RootNode" unique_id=901317629]
 transform = Transform3D(100, 0, 0, 0, 100, -4.371139e-06, 0, 4.371139e-06, 100, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ld3in")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1399206822]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1507974284]
+shape = SubResource("BoxShape3D_h8ms6")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
