@@ -105,17 +105,14 @@ func apply_lean(horizontal: float) -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-    print(area.get_groups())
     if not area.is_in_group('collectible'):
         take_damage()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-    print(body.get_groups())
     if not body.is_in_group('collectible'):
         take_damage()
         
 func take_damage() -> void:
-    # TODO: bug here, collectibles are causing damage to be taken
     if can_take_damage:
         can_take_damage = false
         health -= 1
