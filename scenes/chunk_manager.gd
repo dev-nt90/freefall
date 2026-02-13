@@ -3,7 +3,6 @@ extends Node3D
 signal tunnel_chunk_spawned
 
 @onready var tunnel_chunk = preload("res://scenes/tunnel_chunk.tscn")
-@onready var hud = get_tree().get_first_node_in_group('hud')
 @onready var active_chunks = $ActiveChunks
 
 var tunnel_rotation_direction: float = 1.0

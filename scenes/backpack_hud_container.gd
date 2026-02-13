@@ -27,7 +27,10 @@ func update_backpack_health(value: int) -> void:
     $BackpackHud/HeartContainer/HeartCountLabel.text = "X %d" % value
     
 func update_backpack_distance(value: int) -> void:
-    $BackpackHud/DistanceToPlanetLabel.text = "Planetfall in " + str(value)
+    $BackpackHud/DistanceToPlanetLabel.text = "Dist: %d" % value
 
 func update_backpack_gravity(value: float) -> void:
-    $BackpackHud/GravityModifierLabel.text = "Gravity: %.1f" % value
+    $BackpackHud/GravityModifierLabel.text = "Grav: %.1f" % value
+
+func update_backpack_score(value: int) -> void:
+    $BackpackHud/ScoreLabel.text = "Score: %d" % value

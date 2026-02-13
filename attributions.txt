@@ -12,3 +12,4 @@ Halo by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) vi
 Planet by Quaternius (https://poly.pizza/m/hKZtOOMadH)
 Starry Sky shader: https://godotshaders.com/shader/starry-sky/
 Crystal pack: https://poly.pizza/bundle/Crystal-Pack-AywAG7aywi
+Bitcount font: https://fonts.google.com/selection?categoryFilters=Technology:%2FTechnology%2FVariable

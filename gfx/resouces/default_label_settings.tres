@@ -1,6 +1,9 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://by45jgrkdnkm2"]
 
+[ext_resource type="FontFile" uid="uid://j05d6jefbyf0" path="res://gfx/font/BitcountGridDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="1_4pylv"]
+
 [resource]
-font_size = 40
+font = ExtResource("1_4pylv")
+font_size = 50
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)

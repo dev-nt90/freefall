@@ -5,11 +5,13 @@ extends Node3D
 @onready var last_distance_to_planet: int = get_distance_to_planet()
 @onready var initial_distance_to_planet: int = last_distance_to_planet
 var distance_travelled: int = 0
+var current_score: int = 0
 
 func _ready() -> void:
     planet.player_entered_endzone.connect(game_over)
     player.player_took_damage.connect(take_damage)
     player.player_died.connect(game_over)
+    update_current_score(0)
 
 func _process(_delta: float) -> void:
     var current_distance_to_planet: int = get_distance_to_planet()
@@ -32,5 +34,9 @@ func get_distance_to_planet() -> int:
         return 0
     return abs(int(player.position.y - planet.position.y))
 
+func update_current_score(value: int) -> void:
+    current_score += value
+    player.update_score(value)
+    
 func game_over() -> void:
     get_tree().quit.call_deferred()

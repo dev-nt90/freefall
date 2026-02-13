@@ -138,6 +138,8 @@ func take_damage() -> void:
             $Timers/PlayerDamageTimer.start()
             backpack_container.update_backpack_health(health)
 
+func update_score(value: int) -> void:
+    backpack_container.update_backpack_score(value)
 
 func _on_player_damage_timer_timeout() -> void:
     can_take_damage = true
