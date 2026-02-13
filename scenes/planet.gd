@@ -1,11 +1,13 @@
 class_name Planet
 
-extends LevelPiece
+extends Node3D
 
 signal player_entered_endzone
 
+@export var move_speed: float = 10.0
+
 func _physics_process(delta: float) -> void:
-    super._physics_process(delta)
+    position.y += delta * move_speed * GameConfiguration.speed_modifier
     
     if position.y >= 0:
         player_entered_endzone.emit()

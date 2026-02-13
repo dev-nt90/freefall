@@ -2,13 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkjtjyoa685nc" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://5mwabr05bdqn" path="res://gfx/models/Astronaut-alt_Astronaut_BaseColor.png" id="2_g2els"]
-
-[sub_resource type="Curve" id="Curve_g2els"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.8378379, 0.15730345), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_qhqgy"]
-curve = SubResource("Curve_g2els")
+[ext_resource type="PackedScene" uid="uid://dsksmfb0s0bbg" path="res://scenes/backpack_hud_container.tscn" id="3_qhqgy"]
 
 [sub_resource type="Curve" id="Curve_qhqgy"]
 _data = [Vector2(0, 0.70786524), 0.0, 0.0, 0, 0, Vector2(1, 0.3820225), 0.0, 0.0, 0, 0]
@@ -31,16 +25,15 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.25
 scale_max = 0.5
 scale_curve = SubResource("CurveTexture_dqkch")
-alpha_curve = SubResource("CurveTexture_qhqgy")
 turbulence_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2els"]
+transparency = 1
 shading_mode = 0
-albedo_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
+albedo_color = Color(0.27022192, 0.27022192, 0.2702219, 1)
 disable_receive_shadows = true
 distance_fade_mode = 1
 distance_fade_min_distance = 0.1
-distance_fade_max_distance = 7.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_qhqgy"]
 material = SubResource("StandardMaterial3D_g2els")
@@ -124,6 +117,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="Astronaut_mesh" type="MeshInstance3D" parent="VisualRoot/Astronaut-alt" unique_id=514813787]
 mesh = SubResource("ArrayMesh_it2hb")
+
+[node name="BackpackHudContainer" parent="VisualRoot" unique_id=300521221 instance=ExtResource("3_qhqgy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.9255979, -0.7898176)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=446861268]
 collision_mask = 6

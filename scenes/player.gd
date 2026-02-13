@@ -22,6 +22,7 @@ var can_take_damage: bool = true
 @onready var info_label: Label3D = $InfoLabel
 @onready var thruster_smoke_fx = $Effects/ThrusterSmoke
 @onready var visual_root = $VisualRoot
+@onready var backpack_container = $VisualRoot/BackpackHudContainer
 
 func _ready() -> void:
     info_label.text = ""
@@ -34,9 +35,7 @@ func _physics_process(delta: float) -> void:
 func move_logic(delta: float) -> void:
     var input_dir = Input.get_vector("right", "left", "down", "up")
     
-    # since objects can collide with the player and move them up, this keeps them
-    # locked in place vertically to keep the illusion
-    position.y = 0
+    enforce_bounds()
     
     # core movement, make player feel "floaty"
     move_by_velocity(delta, input_dir)
@@ -84,6 +83,22 @@ func handle_rotation(delta: float):
     if Input.is_action_pressed("rotate_right"):
         rotation.y -= rotation_speed * delta
 
+func enforce_bounds():
+    # since objects can collide with the player and move them up, this keeps them
+    # locked in place vertically to keep the illusion
+    position.y = 0
+    
+    # keep the player in the play area
+    # TODO maybe a pop-up to warn when at boundary?
+    if position.x > GameConfiguration.max_horizontal:
+        position.x = GameConfiguration.max_horizontal
+    if position.x < GameConfiguration.min_horizontal:
+        position.x = GameConfiguration.min_horizontal
+    if position.z > GameConfiguration.max_horizontal:
+        position.z = GameConfiguration.max_horizontal
+    if position.z < GameConfiguration.min_horizontal: 
+        position.z = GameConfiguration.min_horizontal
+
 func apply_lean(horizontal: float) -> void:
     # Target roll: right input -> lean right
     var target_roll_rad = deg_to_rad(max_lean_degrees) * -horizontal
@@ -121,6 +136,7 @@ func take_damage() -> void:
         else:
             player_took_damage.emit(health)
             $Timers/PlayerDamageTimer.start()
+            backpack_container.update_backpack_health(health)
 
 
 func _on_player_damage_timer_timeout() -> void:

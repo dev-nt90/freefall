@@ -15,9 +15,9 @@ func spawn_ring(color: String, points: int):
     var new_ring = ring_scene.instantiate()
     collectible_container.add_child(new_ring)
     
-    #TODO: create level bounds object
-    var rand_x = randi_range(-500, 500)
-    var rand_z = randi_range(-500, 500)
+    
+    var rand_x = randi_range(GameConfiguration.min_horizontal, GameConfiguration.max_horizontal)
+    var rand_z = randi_range(GameConfiguration.min_horizontal, GameConfiguration.max_horizontal)
     var rand_y = randi_range(-100, -500)
     var rand_pos = Vector3(rand_x, rand_y, rand_z)
     new_ring.position = rand_pos

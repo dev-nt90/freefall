@@ -7,9 +7,8 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kiyfh"]
 albedo_texture = ExtResource("2_r4dog")
 
-[node name="TunnelChunk" type="Node3D" unique_id=664751912]
+[node name="TunnelChunk" type="Node3D" unique_id=918338025]
 script = ExtResource("1_c0so3")
-metadata/_custom_type_script = "uid://c0k7lqcji8gow"
 
 [node name="TunnelGeometryBase" type="CSGCombiner3D" parent="." unique_id=1604135709]
 calculate_tangents = false

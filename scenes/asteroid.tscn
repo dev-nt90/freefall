@@ -1,9 +1,11 @@
 [gd_scene format=4 uid="uid://goghrnkyab44"]
 
 [ext_resource type="Script" uid="uid://c0k7lqcji8gow" path="res://scenes/level_piece.gd" id="1_6mo6b"]
+[ext_resource type="Script" uid="uid://c005fcxkqjvhi" path="res://scenes/fade_in_behavior.gd" id="2_6mo6b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_du6qi"]
 resource_name = "Asteroid"
+transparency = 1
 albedo_color = Color(0.4733267, 0.45921516, 0.4654629, 1)
 roughness = 0.991
 emission_enabled = true
@@ -46,6 +48,7 @@ shadow_mesh = SubResource("ArrayMesh_t1uxq")
 points = PackedVector3Array(0.16260947, 0.25220412, 0.73674595, -0.11253134, -0.023864353, -0.83395153, -0.1139652, -0.1744532, -0.8201758, -0.8097902, 0.049828522, 0.27601942, 0.31229705, -0.65310615, 0.22918724, 0.41249776, 0.70265007, -0.02195177, 0.78912324, 0.025011603, -0.17228936, -0.3139821, 0.6994748, -0.22181398, -0.56109375, -0.447255, -0.4695477, -0.13930413, -0.67528594, 0.4281736, 0.33456296, -0.49813372, -0.620131, -0.24032645, 0.45212385, 0.6816511, 0.23594338, 0.3750808, -0.6723768, 0.5852818, -0.049826007, 0.52751523, -0.4648847, -0.025006553, 0.6791732, -0.16354264, -0.6720681, -0.42043817, -0.5320163, 0.3209348, -0.36757034, 0.7124416, -0.35081497, 0.103302985, 0.21050388, -0.3746153, 0.62743753, 0.5853153, 0.39971682, 0.32767865, -0.23331746, 0.36613947, -0.7046917, 0.6329131, -0.39797536, -0.44519192, -0.5381336, -0.3742757, 0.37701684, 0.40938598, -0.04961147, -0.69503134, -0.5929414, 0.37719244, 0.43121803, -0.1142241, 0.77532625, 0.0028900153, 0.13443704, 0.66972905, -0.39422694, 0.23335208, 0.42121354, 0.6462963, -0.3888769, -0.6243791, -0.022146313, 0.2875165, -0.65402156, -0.22292313, 0.50429577, 0.39544344, -0.3679498, -0.21350168, -0.3983471, -0.71939725)
 
 [node name="Asteroid" type="Node3D" unique_id=1316001523]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 script = ExtResource("1_6mo6b")
 metadata/_custom_type_script = "uid://c0k7lqcji8gow"
 
@@ -53,6 +56,7 @@ metadata/_custom_type_script = "uid://c0k7lqcji8gow"
 
 [node name="Asteroid_Icosphere" type="MeshInstance3D" parent="Asteroid" unique_id=487343784]
 mesh = SubResource("ArrayMesh_5daih")
+script = ExtResource("2_6mo6b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Asteroid/Asteroid_Icosphere" unique_id=2070775747]
 collision_layer = 2

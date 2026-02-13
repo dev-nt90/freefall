@@ -6,17 +6,6 @@
 [node name="hud" type="CanvasLayer" unique_id=1459829294 groups=["hud"]]
 script = ExtResource("1_oo0fn")
 
-[node name="DistanceLabel" type="Label" parent="." unique_id=821610480]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 40
-text = "Distance to planet: "
-label_settings = ExtResource("2_oo0fn")
-
 [node name="ScoreLabel" type="Label" parent="." unique_id=1556490916]
 anchors_preset = 1
 anchor_left = 1.0
@@ -28,16 +17,4 @@ offset_bottom = 113.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 40
 text = "Score:"
-label_settings = ExtResource("2_oo0fn")
-
-[node name="SpeedModifierLabel" type="Label" parent="." unique_id=1075509131]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -690.0
-offset_top = 110.0
-offset_right = -33.0
-offset_bottom = 165.0
-grow_horizontal = 0
-text = "Current Speed Modifier: 1.0"
 label_settings = ExtResource("2_oo0fn")

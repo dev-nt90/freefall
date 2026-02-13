@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c0k7lqcji8gow" path="res://scenes/level_piece.gd" id="1_x7stj"]
 [ext_resource type="Texture2D" uid="uid://b7mjt68cjn4nc" path="res://gfx/models/AsteroidBelt2_Asteroids_BaseColor.png" id="2_x7stj"]
+[ext_resource type="Script" uid="uid://c005fcxkqjvhi" path="res://scenes/fade_in_behavior.gd" id="3_qxmwo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xn51p"]
 resource_name = "Asteroids_Mat"
+transparency = 1
 albedo_texture = ExtResource("2_x7stj")
 emission_enabled = true
 texture_filter = 2
@@ -54,6 +56,7 @@ metadata/_custom_type_script = "uid://c0k7lqcji8gow"
 
 [node name="Asteroids_Mesh" type="MeshInstance3D" parent="AsteroidBelt2" unique_id=2111802681]
 mesh = SubResource("ArrayMesh_dk01i")
+script = ExtResource("3_qxmwo")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="AsteroidBelt2/Asteroids_Mesh" unique_id=1714692970]
 collision_layer = 2

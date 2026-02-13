@@ -1,9 +1,11 @@
 [gd_scene format=4 uid="uid://dcongpgk660rb"]
 
 [ext_resource type="Script" uid="uid://c0k7lqcji8gow" path="res://scenes/level_piece.gd" id="1_bm4ah"]
+[ext_resource type="Script" uid="uid://c005fcxkqjvhi" path="res://scenes/fade_in_behavior.gd" id="2_bm4ah"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dakad"]
 resource_name = "mat15"
+transparency = 1
 albedo_color = Color(0.8152507, 0.85430586, 0.86504203, 1)
 emission_enabled = true
 
@@ -38,10 +40,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lghu6")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k544b"]
-points = PackedVector3Array(2.8701239, -0.18469146, 0.24281153, -1.310401, 0.09771642, -0.4633243, -2.1572762, 0.04122489, -0.03940554, -0.26456115, 0.15420794, 0.045356635, -2.864139, 0.04122489, 0.6101143, 2.7850964, -0.29772428, 0.15804935, 1.2880433, -0.04348752, -0.43507022, 2.7567537, -0.21291234, 0.5253521, -2.920824, -0.071658626, 0.5536062, 0.977409, -0.12815017, -0.3785621, -1.310401, 0.18247859, -0.4633243, 2.7284112, -0.29772428, 0.5253521, -2.1856186, 0.12598707, 0.41233587, 1.9659969, -0.04348752, -0.18078367, -0.8858296, 0.21074924, -0.2372918, -2.1572762, 0.15420794, -0.03940554, 2.5589228, -0.1564208, 0.44058996, -0.09507275, 0.15420794, -0.35030806, -2.920824, -0.04348752, 0.63836837, -2.5807135, 0.09771642, 0.5253521, -2.7791114, 0.06949554, 0.32757372, 0.80792063, -0.09992927, -0.43507022, 1.9376543, -0.18469146, -0.20892991, 2.8417814, -0.1564208, 0.1863034, 2.8701239, -0.26940387, 0.15804935, 2.6439505, -0.29772428, 0.2710656, -2.7791114, -0.01526664, 0.32757372, -2.8357966, -0.01526664, 0.63836837, 1.9943395, -0.1564208, -0.20892991, -2.6657412, 0.09771642, 0.4970981, -2.1572762, 0.15420794, 0.045356635, -0.09507275, 0.15420794, -0.26543802)
+[sub_resource type="BoxShape3D" id="BoxShape3D_k544b"]
+size = Vector3(4.6430206, 0.09890747, 0.46325684)
 
 [node name="AsteroidBelt" type="Node3D" unique_id=1853011827]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_bm4ah")
 metadata/_custom_type_script = "uid://c0k7lqcji8gow"
 
@@ -49,10 +52,12 @@ metadata/_custom_type_script = "uid://c0k7lqcji8gow"
 
 [node name="Node" type="MeshInstance3D" parent="AsteroidBelt" unique_id=1824500552]
 mesh = SubResource("ArrayMesh_uhk23")
+script = ExtResource("2_bm4ah")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="AsteroidBelt/Node" unique_id=24692370]
 collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AsteroidBelt/Node/StaticBody3D" unique_id=1342345583]
-shape = SubResource("ConvexPolygonShape3D_k544b")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010566711, 0.038131714, -0.06109619)
+shape = SubResource("BoxShape3D_k544b")

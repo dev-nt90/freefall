@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dsksmfb0s0bbg"]
+
+[ext_resource type="Script" uid="uid://bxvd0vekjmb2j" path="res://scenes/backpack_hud_container.gd" id="1_4d4ke"]
+[ext_resource type="PackedScene" uid="uid://bpgto2lhwkx73" path="res://scenes/backpack_hud.tscn" id="1_kxal8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kxal8"]
+viewport_path = NodePath("BackpackHud")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxal8"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_kxal8")
+
+[sub_resource type="QuadMesh" id="QuadMesh_4d4ke"]
+material = SubResource("StandardMaterial3D_kxal8")
+
+[sub_resource type="BoxMesh" id="BoxMesh_kxal8"]
+
+[node name="BackpackHudContainer" type="MeshInstance3D" unique_id=300521221]
+mesh = SubResource("QuadMesh_4d4ke")
+script = ExtResource("1_4d4ke")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1923385192]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 0.05, 0, 0, -0.02596575)
+mesh = SubResource("BoxMesh_kxal8")
+
+[node name="BackpackHud" parent="." unique_id=1770741678 instance=ExtResource("1_kxal8")]

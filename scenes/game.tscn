@@ -48,6 +48,7 @@ dof_blur_amount = 0.05
 [node name="EnvironmentManager" parent="." unique_id=2010607272 instance=ExtResource("7_u5sy4")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1471266512]
+transform = Transform3D(1, 0, 0, 0, 0.91440225, 0.40480652, 0, -0.40480652, 0.91440225, 0, 59.226204, 0)
 shadow_enabled = true
 shadow_bias = 3.862
 sky_mode = 1
