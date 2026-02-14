@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cq3h0u4551k17" path="res://scenes/game_over_canvas.gd" id="1_qy58y"]
 [ext_resource type="Theme" uid="uid://ycq1t7rs350y" path="res://gfx/resouces/default_button_theme.tres" id="2_5pyyf"]
 [ext_resource type="LabelSettings" uid="uid://b265jv2ycyte5" path="res://gfx/resouces/title_label_theme.tres" id="2_6alte"]
+[ext_resource type="LabelSettings" uid="uid://by45jgrkdnkm2" path="res://gfx/resouces/default_label_settings.tres" id="3_6o7te"]
 
 [node name="GameOverCanvas" type="CanvasLayer" unique_id=1368796674 groups=["game_over_canvas"]]
 process_mode = 3
@@ -48,6 +49,58 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "Death"
 label_settings = ExtResource("2_6alte")
+
+[node name="DistanceTravelledLabel" type="Label" parent="StatsContainer/StatsContainerPanel/StatsPanel" unique_id=688058377]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 199.0
+offset_right = 840.0
+offset_bottom = 259.0
+text = "Distance Travelled: 0 units"
+label_settings = ExtResource("3_6o7te")
+
+[node name="CurrentScoreLabel" type="Label" parent="StatsContainer/StatsContainerPanel/StatsPanel" unique_id=1527783337]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 300.0
+offset_right = 722.0
+offset_bottom = 360.0
+text = "Current Score: 0 points"
+label_settings = ExtResource("3_6o7te")
+
+[node name="CurrentHealthLabel" type="Label" parent="StatsContainer/StatsContainerPanel/StatsPanel" unique_id=873740810]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 405.0
+offset_right = 752.0
+offset_bottom = 465.0
+text = "Current Health: 0 Hearts"
+label_settings = ExtResource("3_6o7te")
+
+[node name="FinalScoreLabel" type="Label" parent="StatsContainer/StatsContainerPanel/StatsPanel" unique_id=811320880]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 778.0
+offset_right = 491.0
+offset_bottom = 838.0
+text = "Final Score = 0"
+label_settings = ExtResource("3_6o7te")
+
+[node name="FinalScoreExplanationLabel" type="Label" parent="StatsContainer/StatsContainerPanel/StatsPanel" unique_id=1431874519]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = 43.5
+offset_right = 2544.0
+offset_bottom = 292.5
+grow_vertical = 2
+text = "Final Score Formula = current score + 
+    (current health * 500) + 
+    10k points if made planetfall"
+label_settings = ExtResource("3_6o7te")
+autowrap_mode = 2
 
 [node name="RestartButton" type="Button" parent="StatsContainer/StatsContainerPanel" unique_id=163722689]
 layout_mode = 1

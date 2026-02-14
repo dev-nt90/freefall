@@ -31,7 +31,13 @@ func show_stats() -> void:
     $StatsContainer.visible = true
     var game_over_reason = final_stats['game_over_reason']
     $StatsContainer/StatsContainerPanel/StatsPanel/GameOverReasonLabel.text = game_over_reason
+    var reason_score = 10000 if game_over_reason == 'Made Planetfall' else 0
+    var health_score = final_stats['current_health'] * 500
+    var current_score = final_stats['current_score']
+    var final_score = current_score + health_score + reason_score
+    $StatsContainer/StatsContainerPanel/StatsPanel/FinalScoreLabel.text = "Final Score = %d" % final_score
 
+    
 func _on_restart_button_pressed() -> void:
     get_tree().paused = false
     get_tree().change_scene_to_file("res://scenes/game.tscn")

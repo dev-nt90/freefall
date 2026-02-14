@@ -10,6 +10,7 @@ func _process(delta: float) -> void:
 func pause():
     get_tree().paused = true
     self.visible = true
+    $Panel/ResumeButton.grab_focus()
 
 func unpause():
     self.visible = false
@@ -17,7 +18,6 @@ func unpause():
 
 func _on_resume_button_pressed() -> void:
     unpause()
-
 
 func _on_restart_button_pressed() -> void:
     unpause()
