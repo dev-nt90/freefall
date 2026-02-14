@@ -5,9 +5,9 @@ extends Node3D
 @export var move_speed: float = 10.0
 @export var base_rotation_speed: float = 1.0
 @export var rotation_modifier: float = randf_range(.5, 1.5)
-var rotate_x: bool = true if randi_range(0, 1) == 1 else false
-var rotate_y: bool = true if randi_range(0, 1) == 1 else false
-var rotate_z: bool = true if randi_range(0, 1) == 1 else false
+var should_rotate_x: bool = true if randi_range(0, 1) == 1 else false
+var should_rotate_y: bool = true if randi_range(0, 1) == 1 else false
+var should_rotate_z: bool = true if randi_range(0, 1) == 1 else false
 
 func _physics_process(delta: float) -> void:
     position.y += delta * move_speed * GameConfiguration.speed_modifier

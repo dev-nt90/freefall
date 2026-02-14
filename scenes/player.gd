@@ -27,6 +27,7 @@ var can_take_damage: bool = true
 func _ready() -> void:
     info_label.text = ""
     thruster_smoke_fx.emitting = false
+    backpack_container.update_backpack_health(health)
 
 func _physics_process(delta: float) -> void:
     move_logic(delta)
@@ -143,3 +144,6 @@ func update_score(value: int) -> void:
 
 func _on_player_damage_timer_timeout() -> void:
     can_take_damage = true
+
+func get_current_health() -> int:
+    return health

@@ -1,39 +1,13 @@
 [gd_scene format=3 uid="uid://bxs0sijhgo2db"]
 
-[ext_resource type="Shader" uid="uid://ca6gsu2omtpf2" path="res://scenes/skybox.gdshader" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c3gk71txcrsqp" path="res://scenes/player.tscn" id="1_yqjtg"]
+[ext_resource type="Environment" uid="uid://wb4f1mpikwdl" path="res://gfx/resouces/world_environment.tres" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dteok3xt252d4" path="res://scenes/chunk_manager.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c5t1sow6fldu" path="res://scenes/ring_manager.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://swp36mmpie5v" path="res://scenes/game_manager.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bw4mvdmbadknw" path="res://scenes/game_over_canvas.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://ba71h2chpvdox" path="res://scenes/environment_manager.tscn" id="7_u5sy4"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbhrr"]
-shader = ExtResource("1_lnu2h")
-shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
-shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
-shader_parameter/star_hue_offset = 0.6
-shader_parameter/star_intensity = 0.04400000209
-shader_parameter/star_twinkle_speed = 0.8
-shader_parameter/star_twinkle_intensity = 0.2
-shader_parameter/layer_scale = 20.0
-shader_parameter/layer_scale_step = 10.0
-shader_parameter/layers_count = 3
-
-[sub_resource type="Sky" id="Sky_uwrxv"]
-sky_material = SubResource("ShaderMaterial_lbhrr")
-
-[sub_resource type="Environment" id="Environment_yqjtg"]
-background_mode = 2
-sky = SubResource("Sky_uwrxv")
-sky_rotation = Vector3(1.5707964, 0, 0)
-tonemap_mode = 2
-ssr_enabled = true
-ssao_enabled = true
-ssil_enabled = true
-glow_enabled = true
-glow_intensity = 1.29
-glow_bloom = 0.14
-volumetric_fog_density = 0.0
+[ext_resource type="PackedScene" uid="uid://bphvuheuvgx6x" path="res://scenes/pause_canvas.tscn" id="8_gee14"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_iywne"]
 dof_blur_far_enabled = true
@@ -53,11 +27,12 @@ shadow_bias = 3.862
 sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=969336364]
-environment = SubResource("Environment_yqjtg")
+environment = ExtResource("2_p57ef")
 camera_attributes = SubResource("CameraAttributesPractical_iywne")
 
 [node name="Player" parent="." unique_id=583202362 instance=ExtResource("1_yqjtg")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+health = 1
 
 [node name="ChunkManager" parent="." unique_id=1752898970 instance=ExtResource("3_lnu2h")]
 
@@ -69,5 +44,9 @@ transform = Transform3D(1, 0, 0, 0, 0.91666293, 0.39966118, 0, -0.39966112, 0.91
 [node name="RingManager" parent="." unique_id=1313984483 instance=ExtResource("5_iywne")]
 
 [node name="GameManager" parent="." unique_id=807931014 groups=["game_manager"] instance=ExtResource("6_p57ef")]
+
+[node name="GameOverCanvas" parent="." unique_id=1368796674 instance=ExtResource("7_gee14")]
+
+[node name="PauseCanvas" parent="." unique_id=810905528 instance=ExtResource("8_gee14")]
 
 [editable path="Player"]

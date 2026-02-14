@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bphvuheuvgx6x"]
+
+[ext_resource type="Script" uid="uid://rgbcstg1vpjq" path="res://scenes/pause_canvas.gd" id="1_dphea"]
+[ext_resource type="LabelSettings" uid="uid://b265jv2ycyte5" path="res://gfx/resouces/title_label_theme.tres" id="2_3ryqy"]
+[ext_resource type="Theme" uid="uid://ycq1t7rs350y" path="res://gfx/resouces/default_button_theme.tres" id="3_jxfag"]
+
+[node name="PauseCanvas" type="CanvasLayer" unique_id=810905528]
+process_mode = 3
+script = ExtResource("1_dphea")
+
+[node name="Panel" type="Panel" parent="." unique_id=1051438699]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=1070379826]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -223.0
+offset_top = 41.0
+offset_right = 209.0
+offset_bottom = 186.0
+grow_horizontal = 2
+text = "Paused"
+label_settings = ExtResource("2_3ryqy")
+
+[node name="ResumeButton" type="Button" parent="Panel" unique_id=987486675]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_bottom = NodePath("../RestartButton")
+theme = ExtResource("3_jxfag")
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="Panel" unique_id=1826239164]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 59.0
+offset_right = 88.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../ReturnToMenuButton")
+theme = ExtResource("3_jxfag")
+text = "Restart"
+
+[node name="ReturnToMenuButton" type="Button" parent="Panel" unique_id=42596124]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = 150.0
+offset_right = 183.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../RestartButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+theme = ExtResource("3_jxfag")
+text = "Return to Menu"
+
+[node name="QuitButton" type="Button" parent="Panel" unique_id=1731582794]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 239.0
+offset_right = 51.0
+offset_bottom = 296.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../ReturnToMenuButton")
+theme = ExtResource("3_jxfag")
+text = "Quit"
+
+[connection signal="pressed" from="Panel/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Panel/ReturnToMenuButton" to="." method="_on_return_to_menu_button_pressed"]
+[connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]

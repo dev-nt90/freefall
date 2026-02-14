@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://ycq1t7rs350y"]
+
+[ext_resource type="FontFile" uid="uid://j05d6jefbyf0" path="res://gfx/font/BitcountGridDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="1_pvt6m"]
+
+[resource]
+default_font = ExtResource("1_pvt6m")
+default_font_size = 40

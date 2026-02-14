@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://cxyb3yakae6gg"]
+
+[ext_resource type="Script" uid="uid://0ioaanq3bw3a" path="res://scenes/main_menu.gd" id="1_8ln24"]
+[ext_resource type="Environment" uid="uid://wb4f1mpikwdl" path="res://gfx/resouces/world_environment.tres" id="1_l6cm7"]
+[ext_resource type="LabelSettings" uid="uid://b265jv2ycyte5" path="res://gfx/resouces/title_label_theme.tres" id="3_8ln24"]
+[ext_resource type="PackedScene" uid="uid://ba71h2chpvdox" path="res://scenes/environment_manager.tscn" id="3_bqqt6"]
+[ext_resource type="Theme" uid="uid://ycq1t7rs350y" path="res://gfx/resouces/default_button_theme.tres" id="3_wu84c"]
+
+[node name="MainMenu" type="Node3D" unique_id=1115979479]
+script = ExtResource("1_8ln24")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1761776717]
+environment = ExtResource("1_l6cm7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1939730302]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1477224660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -200, 0)
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1780839530]
+
+[node name="StartMenuContainer" type="Control" parent="CanvasLayer" unique_id=2023306427]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/StartMenuContainer" unique_id=1754870243]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -236.0
+offset_top = 77.0
+offset_right = 244.0
+offset_bottom = 174.0
+grow_horizontal = 2
+text = "Planetfall"
+label_settings = ExtResource("3_8ln24")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="CanvasLayer/StartMenuContainer" unique_id=1593366549]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -28.5
+offset_right = 64.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_bottom = NodePath("../QuitButton")
+theme = ExtResource("3_wu84c")
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/StartMenuContainer" unique_id=500530197]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 68.0
+offset_right = 50.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../StartButton")
+theme = ExtResource("3_wu84c")
+text = "Quit"
+
+[node name="HowToPlayContainer" type="Control" parent="CanvasLayer" unique_id=1240543016]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/HowToPlayContainer" unique_id=1180115589]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="CanvasLayer/HowToPlayContainer/Panel" unique_id=131012410]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -76.0
+offset_right = 123.0
+offset_bottom = -19.0
+grow_vertical = 0
+focus_neighbor_right = NodePath("../ContinueButton")
+theme = ExtResource("3_wu84c")
+text = "Back"
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/HowToPlayContainer/Panel" unique_id=499883608]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -76.0
+offset_right = -18.0
+offset_bottom = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_neighbor_left = NodePath("../BackButton")
+theme = ExtResource("3_wu84c")
+text = "Continue"
+
+[node name="HowToPlayLabel" type="Label" parent="CanvasLayer/HowToPlayContainer/Panel" unique_id=1489347776]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "How To Play"
+label_settings = ExtResource("3_8ln24")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HowToPlayContainer/Panel" unique_id=1154563216]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -917.0
+offset_top = -413.0
+offset_right = 893.0
+offset_bottom = 409.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/HowToPlayContainer/Panel/PanelContainer" unique_id=636629590]
+layout_mode = 2
+theme = ExtResource("3_wu84c")
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+text = "Overview: your space station has been destroyed and you are being pulled into the gravity of a nearby planet! Your objective is to survive to planetfall, collecting points along the way. Good luck and have fun!
+
+Controls: 
+    Move: Left Stick or WASD
+    Rotate: Bumpers or Q/E
+
+Ring points:
+    pink = 5
+    white = 10
+    red = 25
+    green = 50
+    blue = 75
+    yellow = 100
+    black = 1000"
+fit_content = true
+
+[node name="EnvironmentManager" parent="." unique_id=2010607272 instance=ExtResource("3_bqqt6")]
+
+[connection signal="pressed" from="CanvasLayer/StartMenuContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/StartMenuContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HowToPlayContainer/Panel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HowToPlayContainer/Panel/ContinueButton" to="." method="_on_continue_button_pressed"]
