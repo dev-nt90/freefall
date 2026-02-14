@@ -43,6 +43,10 @@ func move_logic(delta: float) -> void:
     handle_rotation(delta)
     apply_lean(input_dir.x)
 
+func set_thruster_active(active: bool):
+    if not OS.has_feature("web"):
+        thruster_smoke_fx.emitting = active
+
 func move_by_velocity(delta: float, input_dir: Vector2):
     # get local axes in WORLD space
     var right = global_transform.basis.x
@@ -59,7 +63,7 @@ func move_by_velocity(delta: float, input_dir: Vector2):
     var desired_dir = (right * input_dir.x) + (forward * input_dir.y)
     
     if desired_dir.length_squared() > 0.0001:
-        thruster_smoke_fx.emitting = true
+        set_thruster_active(true)
         vel += desired_dir * accel * delta
         
         # Clamp max speed
@@ -67,7 +71,7 @@ func move_by_velocity(delta: float, input_dir: Vector2):
         if speed > (max_speed * GameConfiguration.speed_modifier):
             vel = vel / speed * (max_speed * GameConfiguration.speed_modifier)
     else:
-        thruster_smoke_fx.emitting = false
+        set_thruster_active(false)
          
         # No input: brake toward zero
         var speed := vel.length()
