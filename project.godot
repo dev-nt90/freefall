@@ -13,7 +13,11 @@ config_version=5
 config/name="Planetfall"
 run/main_scene="uid://cxyb3yakae6gg"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://buiuvqwwstlp0"
+
+[audio]
+
+buses/default_bus_layout="uid://gv108qbs8747"
 
 [autoload]
 
