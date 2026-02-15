@@ -43,19 +43,23 @@ func update_current_score(value: int) -> void:
     player.update_score(current_score)
     
 func entered_endzone() -> void:
+    var current_health = player.get_current_health()
+    
     stats = {
         'game_over_reason': 'Made Planetfall',
         'distance_travelled': distance_travelled,
         'current_score': current_score,
-        'current_health': player.get_current_health(),
+        'current_health': current_health,
     }
     game_over_canvas.handle_entered_endzone(stats)
     
 func game_over() -> void:
+    var current_health = player.get_current_health()
+    
     stats = {
         'game_over_reason': 'Death',
         'distance_travelled': distance_travelled,
         'current_score': current_score,
-        'current_health': player.get_current_health(),
+        'current_health': current_health,
     }
     game_over_canvas.handle_game_over(stats)

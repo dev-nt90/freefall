@@ -5,11 +5,13 @@ Astronaut by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0
 Asteroid by J-Toastie [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/YS1jpm3mNr)
 Asteroid 2 by J-Toastie [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/yuCzypJ0w4)
 Asteroids by Jarlan Perez [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/9k18F9bT43N)
-Comet by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/ffzZSJOorck)
 Asteroid by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/enaIlQWET9a)
-Satellite by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/1C3zb8Q9USk)
 Halo by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/5jiuuz7sOV_)
 Planet by Quaternius (https://poly.pizza/m/hKZtOOMadH)
 Starry Sky shader: https://godotshaders.com/shader/starry-sky/
 Crystal pack: https://poly.pizza/bundle/Crystal-Pack-AywAG7aywi
 Bitcount font: https://fonts.google.com/selection?categoryFilters=Technology:%2FTechnology%2FVariable
+Music: 
+    https://opengameart.org/content/theendlessjourney
+    https://opengameart.org/content/operator
+    https://opengameart.org/content/space-fast-synth-epic-themes

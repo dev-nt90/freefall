@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dexblycrnho0k"
+path="res://.godot/imported/01 Falling Organ.mp3-f6a536b06eff993c9fbb91a8f0498f5f.mp3str"
+
+[deps]
+
+source_file="res://audio/01 Falling Organ.mp3"
+dest_files=["res://.godot/imported/01 Falling Organ.mp3-f6a536b06eff993c9fbb91a8f0498f5f.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

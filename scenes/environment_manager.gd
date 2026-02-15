@@ -6,9 +6,9 @@ extends Node3D
 @onready var asteroid2 = preload("res://scenes/asteroid_2.tscn")
 #@onready var asteroid_belt = preload("res://scenes/asteroid_belt.tscn")
 @onready var asteroid_belt2 = preload("res://scenes/asteroid_belt_2.tscn")
-@onready var comet = preload("res://scenes/comet.tscn") # TODO use this somehow
+#@onready var comet = preload("res://scenes/comet.tscn") # TODO use this somehow
 @onready var ring = preload("res://scenes/ring.tscn")
-@onready var satelite = preload("res://scenes/satelite.tscn") # TODO use this somehow
+#@onready var satelite = preload("res://scenes/satelite.tscn") # TODO use this somehow
 @onready var planet_scene = preload("res://scenes/planet.tscn")
 
 @onready var env_objects: Array = [
@@ -29,7 +29,7 @@ func _process(_delta: float) -> void:
 
 func spawn_planet() -> void:
     var planet = planet_scene.instantiate()
-    planet.position.y = -5000
+    planet.position.y = GameConfiguration.planet_start_y
     $ActiveObjects.add_child(planet)
     
 func spawn_env_objects(value: int) -> void:

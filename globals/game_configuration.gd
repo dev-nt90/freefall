@@ -1,5 +1,6 @@
 extends Node
 
+# TODO: difficulty selection which changes hazard count, base speed, initial dist to planet, etc
 @export var speed_modifier: float = 1.0
 @export var max_horizontal: int = 500
 @export var min_horizontal: int = -500

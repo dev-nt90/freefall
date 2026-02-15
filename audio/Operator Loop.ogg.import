@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dgjj71fq2dpbx"
+path="res://.godot/imported/Operator Loop.ogg-1011b4a66a005101a7bdac0166b8ef9f.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Operator Loop.ogg"
+dest_files=["res://.godot/imported/Operator Loop.ogg-1011b4a66a005101a7bdac0166b8ef9f.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

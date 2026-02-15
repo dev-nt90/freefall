@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bxs0sijhgo2db"]
 
+[ext_resource type="Script" uid="uid://mv1vq5vt0dun" path="res://scenes/game.gd" id="1_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://c3gk71txcrsqp" path="res://scenes/player.tscn" id="1_yqjtg"]
 [ext_resource type="Environment" uid="uid://wb4f1mpikwdl" path="res://gfx/resouces/world_environment.tres" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dteok3xt252d4" path="res://scenes/chunk_manager.tscn" id="3_lnu2h"]
@@ -17,6 +18,7 @@ dof_blur_near_distance = 10.0
 dof_blur_amount = 0.05
 
 [node name="Game" type="Node3D" unique_id=1502452765]
+script = ExtResource("1_0tnpc")
 
 [node name="EnvironmentManager" parent="." unique_id=2010607272 instance=ExtResource("7_u5sy4")]
 
@@ -32,7 +34,7 @@ camera_attributes = SubResource("CameraAttributesPractical_iywne")
 
 [node name="Player" parent="." unique_id=583202362 instance=ExtResource("1_yqjtg")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-health = 1
+health = 4
 
 [node name="ChunkManager" parent="." unique_id=1752898970 instance=ExtResource("3_lnu2h")]
 
