@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d1cbkytlklc1k"]
+
+[ext_resource type="Shader" uid="uid://y3g7xt2dvu1" path="res://gfx/shaders/player_outline.gdshader" id="1_gpcm1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_gpcm1")
+shader_parameter/outline_color = Color(0.037521772, 0.2753775, 1, 0.61960787)
+shader_parameter/outline_width = 3.0
+shader_parameter/constant_width = true
+shader_parameter/shield_alpha = 0.0

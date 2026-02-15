@@ -20,13 +20,11 @@ var _lean_tween: Tween
 var can_take_damage: bool = true
 var damage_fx = preload("res://audio/fx/complain_1.wav")
 
-@onready var info_label: Label3D = $InfoLabel
 @onready var thruster_smoke_fx = $Effects/ThrusterSmoke
 @onready var visual_root = $VisualRoot
 @onready var backpack_container = $VisualRoot/BackpackHudContainer
 
 func _ready() -> void:
-    info_label.text = ""
     thruster_smoke_fx.emitting = false
     backpack_container.update_backpack_health(health)
 
@@ -140,6 +138,7 @@ func take_damage() -> void:
         if health <= 0:
             player_died.emit()
         else:
+            set_shield()
             AudioManager.play_fx(damage_fx)
             player_took_damage.emit(health)
             $Timers/PlayerDamageTimer.start()
@@ -150,6 +149,20 @@ func update_score(value: int) -> void:
 
 func _on_player_damage_timer_timeout() -> void:
     can_take_damage = true
+    
+func set_shield() -> void:
+    # grab the next pass from the visual mesh
+    var shield_mat = $"VisualRoot/Astronaut-alt/Astronaut_mesh".get_active_material(0).next_pass
+
+    # tween the alpha from 1.0 to 0.0 over the course of 2.5 seconds
+    var t := create_tween()
+    t.tween_method(
+        func(v): shield_mat.set_shader_parameter("shield_alpha", v),
+        1.0, 0.0, 3.0
+    ) \
+        # I have no idea why, but setting the trans to elastic causes the shield to flash yellow in addition to the intended blue color. Classic bug as a feature.
+        .set_trans(Tween.TRANS_ELASTIC) \
+        .set_ease(Tween.EASE_OUT)
 
 func get_current_health() -> int:
     return health

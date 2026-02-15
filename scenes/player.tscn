@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkjtjyoa685nc" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://5mwabr05bdqn" path="res://gfx/models/Astronaut-alt_Astronaut_BaseColor.png" id="2_g2els"]
+[ext_resource type="Material" uid="uid://d1cbkytlklc1k" path="res://gfx/materials/shield_outline_material.tres" id="3_dqkch"]
 [ext_resource type="PackedScene" uid="uid://dsksmfb0s0bbg" path="res://scenes/backpack_hud_container.tscn" id="3_qhqgy"]
 
 [sub_resource type="Curve" id="Curve_qhqgy"]
@@ -40,6 +41,7 @@ material = SubResource("StandardMaterial3D_g2els")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vmre"]
 resource_name = "Astronaut_mat"
+next_pass = ExtResource("3_dqkch")
 albedo_texture = ExtResource("2_g2els")
 emission_enabled = true
 texture_filter = 2
@@ -91,11 +93,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1
 current = true
 fov = 85.0
 far = 10000.0
-
-[node name="InfoLabel" type="Label3D" parent="." unique_id=1756720960]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-billboard = 1
-text = "test"
 
 [node name="Effects" type="Node3D" parent="." unique_id=842643930]
 
