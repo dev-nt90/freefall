@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 @onready var stats_panel: Panel = $StatsContainer/StatsContainerPanel/StatsPanel
-var game_over_music = preload("res://audio/The_Endless_Journey.mp3")
+var game_over_music = preload("res://audio/music/The_Endless_Journey.mp3")
+var select_fx = preload("res://audio/fx/activate_1.wav")
 
 var final_stats: Dictionary = {}
 
@@ -51,10 +52,12 @@ func show_stats() -> void:
     $StatsContainer/StatsContainerPanel/StatsPanel/FinalScoreLabel.text = "Final Score = %d" % final_score
 
 func _on_restart_button_pressed() -> void:
+    AudioManager.play_fx(select_fx)
     get_tree().paused = false
     get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _on_return_to_menu_button_pressed() -> void:
+    AudioManager.play_fx(select_fx)
     get_tree().paused = false
     get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
     

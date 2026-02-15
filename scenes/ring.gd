@@ -12,6 +12,9 @@ signal player_entered_ring
 @onready var pink_ring_material = preload("res://gfx/materials/ring_pink.tres")
 @onready var white_ring_material = preload("res://gfx/materials/ring_white.tres")
 @onready var game_manager = get_tree().get_first_node_in_group('game_manager')
+
+var ring_fx = preload("res://audio/fx/health_1.wav")
+
 var current_material
 
 func _ready() -> void:
@@ -60,7 +63,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
     if not body.is_in_group('player'):
         return
     
-    # TODO: play sound fx
+    AudioManager.play_fx(ring_fx)
     player_entered_ring.emit(points)
     game_manager.update_current_score(points)
     self.queue_free.call_deferred()

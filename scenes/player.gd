@@ -18,6 +18,7 @@ var _lean_tween: Tween
 
 @export var health: int = 3
 var can_take_damage: bool = true
+var damage_fx = preload("res://audio/fx/complain_1.wav")
 
 @onready var info_label: Label3D = $InfoLabel
 @onready var thruster_smoke_fx = $Effects/ThrusterSmoke
@@ -139,6 +140,7 @@ func take_damage() -> void:
         if health <= 0:
             player_died.emit()
         else:
+            AudioManager.play_fx(damage_fx)
             player_took_damage.emit(health)
             $Timers/PlayerDamageTimer.start()
             backpack_container.update_backpack_health(health)

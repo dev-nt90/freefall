@@ -15,3 +15,5 @@ Music:
     https://opengameart.org/content/theendlessjourney
     https://opengameart.org/content/operator
     https://opengameart.org/content/space-fast-synth-epic-themes
+Sound fx:
+    https://opengameart.org/content/vintage-scifi-sfx-vol-1
