@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var target_object_count: int = GameConfiguration.environment_hazards
+@export var target_object_count: int # choose the main menu value here
 
 @onready var asteroid = preload("res://scenes/asteroid.tscn")
 @onready var asteroid2 = preload("res://scenes/asteroid_2.tscn")
@@ -21,6 +21,9 @@ extends Node3D
 func _ready() -> void:
     spawn_planet()
     spawn_env_objects(target_object_count)
+
+func set_target_object_count() -> void:
+     target_object_count = GameConfiguration.environment_hazards
 
 func _process(_delta: float) -> void:
     var current_object_count = $ActiveObjects.get_child_count()

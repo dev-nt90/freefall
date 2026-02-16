@@ -7,14 +7,14 @@ signal player_died
 @export var accel: float = 35.0
 @export var decel: float = 0.5
 @export var rotation_speed: float = 1.5
-@export var move_speed: float = 6
-
+@export var move_speed: float = 12
 var vel: Vector3 = Vector3.ZERO
 
 @export var max_lean_degrees: float = 12.0
 @export var lean_in_time: float = 0.08
 @export var lean_out_time: float = 0.14
 var _lean_tween: Tween
+var _dive_tween: Tween
 
 @export var health: int = 3
 var can_take_damage: bool = true
@@ -40,8 +40,34 @@ func move_logic(delta: float) -> void:
     # core movement, make player feel "floaty"
     move_by_velocity(delta, input_dir)
     handle_rotation(delta)
+    handle_dive(delta)
     apply_lean(input_dir.x)
 
+func handle_dive(delta: float):
+    # Target roll: right input -> lean right
+    var target_roll_rad = deg_to_rad(0)
+    if Input.is_action_pressed("dive"):
+        target_roll_rad = deg_to_rad(90)
+        GameConfiguration.dive_active = true
+    else:
+        GameConfiguration.dive_active = false
+    
+    # If we’re already basically there, don’t spam tweens
+    if is_equal_approx(visual_root.rotation.x, target_roll_rad):
+        return
+
+    # Kill previous tween so rapid direction changes feel snappy
+    if _dive_tween and _dive_tween.is_running():
+        _dive_tween.kill()
+
+    var duration = lean_out_time if target_roll_rad == 0.0 else lean_in_time
+
+    _dive_tween = create_tween()
+    _dive_tween.set_trans(Tween.TRANS_SINE)
+    _dive_tween.set_ease(Tween.EASE_OUT)
+    _dive_tween.tween_property(visual_root, "rotation:x", target_roll_rad, duration)
+    
+    
 func set_thruster_active(active: bool):
     if not OS.has_feature("web"):
         thruster_smoke_fx.emitting = active
@@ -67,8 +93,8 @@ func move_by_velocity(delta: float, input_dir: Vector2):
         
         # Clamp max speed
         var speed := vel.length()
-        if speed > (max_speed * GameConfiguration.speed_modifier):
-            vel = vel / speed * (max_speed * GameConfiguration.speed_modifier)
+        if speed > (max_speed * GameConfiguration.get_speed_modifier()):
+            vel = vel / speed * (max_speed * GameConfiguration.get_speed_modifier())
     else:
         set_thruster_active(false)
          

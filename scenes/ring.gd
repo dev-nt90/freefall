@@ -21,7 +21,7 @@ func _ready() -> void:
     pass
     
 func _physics_process(delta: float) -> void:
-    position.y += move_speed * delta * GameConfiguration.speed_modifier
+    position.y += move_speed * delta * GameConfiguration.get_speed_modifier()
     
     if position.y >= 50:
         queue_free.call_deferred()

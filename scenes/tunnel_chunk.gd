@@ -7,13 +7,13 @@ signal chunk_freed
 
 @export var rotation_speed: float = 1.0
 @export var rotation_direction: float = 1.0
-@export var move_speed: float = 10.0
+@export var move_speed: float = GameConfiguration.base_object_speed
 
 func _ready() -> void:
     setup_score_ring()
 
 func _physics_process(delta: float) -> void:
-    position.y += move_speed * delta * GameConfiguration.speed_modifier
+    position.y += move_speed * delta * GameConfiguration.get_speed_modifier()
     rotation.y += rotation_speed * rotation_direction * delta
     if position.y >= 50:
         chunk_freed.emit()

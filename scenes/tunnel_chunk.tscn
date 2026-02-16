@@ -31,5 +31,5 @@ material = SubResource("StandardMaterial3D_kiyfh")
 
 [node name="Ring" parent="." unique_id=48941672 instance=ExtResource("3_kiyfh")]
 transform = Transform3D(0.4, 0, 0, 0, -1.7484556e-08, -0.4, 0, 0.4, -1.7484556e-08, 0, 0, 0)
-points = 10
+points = 5
 move_speed = 0.0

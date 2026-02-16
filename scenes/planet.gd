@@ -4,10 +4,10 @@ extends Node3D
 
 signal player_entered_endzone
 
-@export var move_speed: float = 10.0
+@export var move_speed: float = GameConfiguration.base_object_speed
 
 func _physics_process(delta: float) -> void:
-    position.y += delta * move_speed * GameConfiguration.speed_modifier
+    position.y += delta * move_speed * GameConfiguration.get_speed_modifier()
     
     if position.y >= 0:
         player_entered_endzone.emit()

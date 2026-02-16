@@ -2,7 +2,7 @@ extends Node
 
 enum MusicState { NONE, MENU, GAMEPLAY }
 
-@export var fade_time: float = 0.75
+@export var fade_time: float = 0.25
 
 var current_music_state: MusicState = MusicState.NONE
 

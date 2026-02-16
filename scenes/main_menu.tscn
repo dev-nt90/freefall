@@ -5,6 +5,7 @@
 [ext_resource type="LabelSettings" uid="uid://b265jv2ycyte5" path="res://gfx/resouces/title_label_theme.tres" id="3_8ln24"]
 [ext_resource type="PackedScene" uid="uid://ba71h2chpvdox" path="res://scenes/environment_manager.tscn" id="3_bqqt6"]
 [ext_resource type="Theme" uid="uid://ycq1t7rs350y" path="res://gfx/resouces/default_button_theme.tres" id="3_wu84c"]
+[ext_resource type="LabelSettings" uid="uid://by45jgrkdnkm2" path="res://gfx/resouces/default_label_settings.tres" id="5_rtw2f"]
 
 [node name="MainMenu" type="Node3D" unique_id=1115979479]
 script = ExtResource("1_8ln24")
@@ -23,6 +24,7 @@ current = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1780839530]
 
 [node name="StartMenuContainer" type="Control" parent="CanvasLayer" unique_id=2023306427]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,21 +98,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackButton" type="Button" parent="CanvasLayer/HowToPlayContainer/Panel" unique_id=131012410]
+[node name="BackToStartMenuButton" type="Button" parent="CanvasLayer/HowToPlayContainer/Panel" unique_id=131012410]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 19.0
-offset_top = -76.0
-offset_right = 123.0
-offset_bottom = -19.0
+offset_left = 20.0
+offset_top = -80.0
+offset_right = 124.0
+offset_bottom = -23.0
 grow_vertical = 0
-focus_neighbor_right = NodePath("../ContinueButton")
+focus_neighbor_right = NodePath("../ContinueToDiffButton")
 theme = ExtResource("3_wu84c")
 text = "Back"
 
-[node name="ContinueButton" type="Button" parent="CanvasLayer/HowToPlayContainer/Panel" unique_id=499883608]
+[node name="ContinueToDiffButton" type="Button" parent="CanvasLayer/HowToPlayContainer/Panel" unique_id=499883608]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -123,7 +125,7 @@ offset_right = -18.0
 offset_bottom = -19.0
 grow_horizontal = 0
 grow_vertical = 0
-focus_neighbor_left = NodePath("../BackButton")
+focus_neighbor_left = NodePath("../BackToStartMenuButton")
 theme = ExtResource("3_wu84c")
 text = "Continue"
 
@@ -166,7 +168,7 @@ text = "Overview: your space station has been destroyed and you are being pulled
 Controls: 
     Move: Left Stick or WASD
     Rotate: Bumpers or Q/E
-
+    Dive: Right Trigger or Spacebar
 Ring points:
     pink = 5
     white = 10
@@ -177,9 +179,144 @@ Ring points:
     black = 1000"
 fit_content = true
 
+[node name="DifficultySelectionContainer" type="Control" parent="CanvasLayer" unique_id=1916789134]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/DifficultySelectionContainer" unique_id=649514474]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DifficultyLabel" type="Label" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=1812478492]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Difficulty"
+label_settings = ExtResource("3_8ln24")
+
+[node name="DifficultyLabel2" type="Label" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=1640319784]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -638.0
+offset_top = 136.0
+offset_right = 636.0
+offset_bottom = 385.0
+grow_horizontal = 2
+text = "Difficulty changes movement speed, the initial distance to planetfall, and more"
+label_settings = ExtResource("5_rtw2f")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="EasyButton" type="Button" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=1637984940]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_bottom = NodePath("../NormalButton")
+theme = ExtResource("3_wu84c")
+text = "Easy"
+
+[node name="NormalButton" type="Button" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=1539423026]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 88.0
+offset_right = 52.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../EasyButton")
+focus_neighbor_bottom = NodePath("../HardButton")
+theme = ExtResource("3_wu84c")
+text = "Normal"
+
+[node name="HardButton" type="Button" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=570995412]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 203.0
+offset_right = 50.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../NormalButton")
+focus_neighbor_bottom = NodePath("../VeryHardButton")
+theme = ExtResource("3_wu84c")
+text = "Hard"
+
+[node name="VeryHardButton" type="Button" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=1545291298]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 319.0
+offset_right = 52.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../HardButton")
+focus_neighbor_bottom = NodePath("../BackToInstButton")
+theme = ExtResource("3_wu84c")
+text = "\"I like the way this sucks\" (Very Hard)"
+
+[node name="BackToInstButton" type="Button" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=546798056]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -80.0
+offset_right = 124.0
+offset_bottom = -23.0
+grow_vertical = 0
+focus_neighbor_top = NodePath("../VeryHardButton")
+theme = ExtResource("3_wu84c")
+text = "Back"
+
 [node name="EnvironmentManager" parent="." unique_id=2010607272 instance=ExtResource("3_bqqt6")]
+target_object_count = 500
 
 [connection signal="pressed" from="CanvasLayer/StartMenuContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/StartMenuContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/HowToPlayContainer/Panel/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/HowToPlayContainer/Panel/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HowToPlayContainer/Panel/BackToStartMenuButton" to="." method="_on_back_to_start_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HowToPlayContainer/Panel/ContinueToDiffButton" to="." method="_on_continue_to_diff_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DifficultySelectionContainer/Panel/EasyButton" to="." method="_on_easy_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DifficultySelectionContainer/Panel/NormalButton" to="." method="_on_normal_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DifficultySelectionContainer/Panel/HardButton" to="." method="_on_hard_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DifficultySelectionContainer/Panel/VeryHardButton" to="." method="_on_very_hard_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DifficultySelectionContainer/Panel/BackToInstButton" to="." method="_on_back_to_inst_button_pressed"]

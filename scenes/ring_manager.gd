@@ -38,7 +38,7 @@ func _on_red_ring_timer_timeout() -> void:
     spawn_rings(18, 'red', 25)
 
 func _on_pink_ring_timer_timeout() -> void:
-    spawn_rings(25, 'pink', 5)
+    spawn_rings(25, 'pink', 15)
 
 func _on_black_ring_timer_timeout() -> void:
     spawn_rings(1, 'black', 1000)
