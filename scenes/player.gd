@@ -40,10 +40,10 @@ func move_logic(delta: float) -> void:
     # core movement, make player feel "floaty"
     move_by_velocity(delta, input_dir)
     handle_rotation(delta)
-    handle_dive(delta)
+    handle_dive()
     apply_lean(input_dir.x)
 
-func handle_dive(delta: float):
+func handle_dive() -> void:
     # Target roll: right input -> lean right
     var target_roll_rad = deg_to_rad(0)
     if Input.is_action_pressed("dive"):
