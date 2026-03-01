@@ -3,6 +3,23 @@ extends Node3D
 var menu_music = preload("res://audio/music/01 Falling Organ.mp3")
 var select_fx = preload("res://audio/fx/activate_1.wav")
 
+@onready var inst_label = $CanvasLayer/HowToPlayContainer/Panel/PanelContainer/RichTextLabel
+@onready var v_scroll = inst_label.get_v_scroll_bar()
+
+var scroll_speed: float = 600.0
+
+func _process(delta: float) -> void:
+    if not $CanvasLayer/HowToPlayContainer.visible:
+        return
+        
+    var axis = Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+    
+    # Deadzone
+    if abs(axis) < 0.15:
+        return
+
+    v_scroll.value += axis * scroll_speed * delta
+
 func _ready() -> void:
     show_start()
     hide_instructions()

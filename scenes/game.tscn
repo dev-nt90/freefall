@@ -38,9 +38,6 @@ health = 4
 
 [node name="ChunkManager" parent="." unique_id=1752898970 instance=ExtResource("3_lnu2h")]
 
-[node name="DebugCamera" type="Camera3D" parent="." unique_id=1456888676]
-transform = Transform3D(1, 0, 0, 0, 0.91666293, 0.39966118, 0, -0.39966112, 0.916663, 0, 0, 31.633528)
-
 [node name="Collectibles" type="Node3D" parent="." unique_id=1177687055]
 
 [node name="RingManager" parent="." unique_id=1313984483 instance=ExtResource("5_iywne")]

@@ -82,7 +82,6 @@ theme = ExtResource("3_wu84c")
 text = "Quit"
 
 [node name="HowToPlayContainer" type="Control" parent="CanvasLayer" unique_id=1240543016]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,9 +130,10 @@ text = "Continue"
 
 [node name="HowToPlayLabel" type="Label" parent="CanvasLayer/HowToPlayContainer/Panel" unique_id=1489347776]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.15
 offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
@@ -143,15 +143,10 @@ label_settings = ExtResource("3_8ln24")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HowToPlayContainer/Panel" unique_id=1154563216]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -917.0
-offset_top = -413.0
-offset_right = 893.0
-offset_bottom = 409.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.85
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -177,9 +172,9 @@ Ring points:
     blue = 75
     yellow = 100
     black = 1000"
-fit_content = true
 
 [node name="DifficultySelectionContainer" type="Control" parent="CanvasLayer" unique_id=1916789134]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -197,25 +192,19 @@ grow_vertical = 2
 
 [node name="DifficultyLabel" type="Label" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=1812478492]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
 grow_horizontal = 2
 text = "Difficulty"
 label_settings = ExtResource("3_8ln24")
 
 [node name="DifficultyLabel2" type="Label" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=1640319784]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -638.0
-offset_top = 136.0
-offset_right = 636.0
-offset_bottom = 385.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.2
 grow_horizontal = 2
 text = "Difficulty changes movement speed, the initial distance to planetfall, and more"
 label_settings = ExtResource("5_rtw2f")
@@ -225,15 +214,11 @@ autowrap_mode = 2
 
 [node name="EasyButton" type="Button" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=1637984940]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_neighbor_bottom = NodePath("../NormalButton")
@@ -242,15 +227,11 @@ text = "Easy"
 
 [node name="NormalButton" type="Button" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=1539423026]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.65
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = 88.0
-offset_right = 52.0
-offset_bottom = 145.0
+anchor_bottom = 0.65
 grow_horizontal = 2
 grow_vertical = 2
 focus_neighbor_top = NodePath("../EasyButton")
@@ -260,15 +241,11 @@ text = "Normal"
 
 [node name="HardButton" type="Button" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=570995412]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.8
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = 203.0
-offset_right = 50.0
-offset_bottom = 260.0
+anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 focus_neighbor_top = NodePath("../NormalButton")
@@ -278,17 +255,16 @@ text = "Hard"
 
 [node name="VeryHardButton" type="Button" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=1545291298]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.95
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = 319.0
-offset_right = 52.0
-offset_bottom = 376.0
+anchor_bottom = 0.95
+offset_left = -472.0
+offset_top = -57.0
+offset_right = 472.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 focus_neighbor_top = NodePath("../HardButton")
 focus_neighbor_bottom = NodePath("../BackToInstButton")
 theme = ExtResource("3_wu84c")
@@ -296,13 +272,11 @@ text = "\"I like the way this sucks\" (Very Hard)"
 
 [node name="BackToInstButton" type="Button" parent="CanvasLayer/DifficultySelectionContainer/Panel" unique_id=546798056]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = -80.0
-offset_right = 124.0
-offset_bottom = -23.0
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.95
+anchor_right = 0.05
+anchor_bottom = 0.95
 grow_vertical = 0
 focus_neighbor_top = NodePath("../VeryHardButton")
 theme = ExtResource("3_wu84c")

@@ -28,13 +28,9 @@ grow_vertical = 2
 
 [node name="StatsPanel" type="Panel" parent="StatsContainer/StatsContainerPanel" unique_id=476513958]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 58.0
-offset_top = 56.0
-offset_right = -55.0
-offset_bottom = -139.0
+anchor_bottom = 0.85
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -51,50 +47,52 @@ text = "Death"
 label_settings = ExtResource("2_6alte")
 
 [node name="DistanceTravelledLabel" type="Label" parent="StatsContainer/StatsContainerPanel/StatsPanel" unique_id=688058377]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 199.0
-offset_right = 840.0
-offset_bottom = 259.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.25
+anchor_right = 0.1
+anchor_bottom = 0.3
 text = "Distance Travelled: 0 units"
 label_settings = ExtResource("3_6o7te")
 
 [node name="CurrentScoreLabel" type="Label" parent="StatsContainer/StatsContainerPanel/StatsPanel" unique_id=1527783337]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 300.0
-offset_right = 722.0
-offset_bottom = 360.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.35
+anchor_right = 0.01
+anchor_bottom = 0.4
 text = "Current Score: 0 points"
 label_settings = ExtResource("3_6o7te")
 
 [node name="CurrentHealthLabel" type="Label" parent="StatsContainer/StatsContainerPanel/StatsPanel" unique_id=873740810]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 405.0
-offset_right = 752.0
-offset_bottom = 465.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.45
+anchor_right = 0.01
+anchor_bottom = 0.45
 text = "Current Health: 0 Hearts"
 label_settings = ExtResource("3_6o7te")
 
 [node name="FinalScoreLabel" type="Label" parent="StatsContainer/StatsContainerPanel/StatsPanel" unique_id=811320880]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 778.0
-offset_right = 491.0
-offset_bottom = 838.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.85
+anchor_right = 0.01
+anchor_bottom = 0.85
 text = "Final Score = 0"
 label_settings = ExtResource("3_6o7te")
 
 [node name="FinalScoreExplanationLabel" type="Label" parent="StatsContainer/StatsContainerPanel/StatsPanel" unique_id=1431874519]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = 43.5
-offset_right = 2544.0
-offset_bottom = 292.5
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 0.7
 grow_vertical = 2
 text = "Final Score Formula = current score + 
     (current health * 500) + 
@@ -104,13 +102,11 @@ autowrap_mode = 2
 
 [node name="RestartButton" type="Button" parent="StatsContainer/StatsContainerPanel" unique_id=163722689]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = -64.0
-offset_right = 169.0
-offset_bottom = -25.0
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.95
+anchor_right = 0.01
+anchor_bottom = 0.97
 grow_vertical = 0
 focus_neighbor_right = NodePath("../ReturnToMenuButton")
 theme = ExtResource("2_5pyyf")
@@ -118,15 +114,11 @@ text = "Restart"
 
 [node name="ReturnToMenuButton" type="Button" parent="StatsContainer/StatsContainerPanel" unique_id=521629152]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -171.0
-offset_top = -64.0
-offset_right = -27.0
-offset_bottom = -25.0
+anchors_preset = -1
+anchor_left = 0.95
+anchor_top = 0.97
+anchor_right = 0.99
+anchor_bottom = 0.97
 grow_horizontal = 0
 grow_vertical = 0
 focus_neighbor_left = NodePath("../RestartButton")
